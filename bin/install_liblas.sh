@@ -8,7 +8,7 @@
 # Author:  Brian Hamlin dbb maplabs@light42.com
 #
 # Licensed under the GNU LGPL version >= 2.1.
-# 
+#
 # This library is free software; you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published
 # by the Free Software Foundation, either version 2.1 of the License,
@@ -38,9 +38,11 @@ apt-get install --yes liblas-bin python-liblas liblas3
 
 echo 'Downloading demo data ...'
 mkdir -p /usr/local/share/data/las
-wget -c --progress=dot:mega \
-    "http://aiolos.survey.ntua.gr/gisvm/data/srs.las" \
-    -O /usr/local/share/data/las/srs.las
 
+#wget -c --progress=dot:mega \
+#    "http://aiolos.survey.ntua.gr/gisvm/data/srs.las" \
+#    -O /usr/local/share/data/las/srs.las
+#
 ####
+
 "$BUILD_DIR"/diskspace_probe.sh "`basename $0`" end

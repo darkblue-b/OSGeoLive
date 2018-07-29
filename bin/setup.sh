@@ -94,6 +94,10 @@ apt-get install --yes wget less zip unzip bzip2 p7zip \
 # If running outside virtualbox the drivers will not be loaded
 apt-get install --yes virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
+##-- patch jul18
+apt install openssh-server --yes
+
+
 ##-------
 # add /usr/local/lib to /etc/ld.so.conf if needed, then run ldconfig
 # FIXME: similar thing needed for man pages?
