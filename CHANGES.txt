@@ -1,6 +1,12 @@
 OSGeo Live GIS Disc
 ===================
 
+Version 13.0buildtest34
+====================
+
+  selectively disabled some installers
+
+
 Version 13.0beta1
 ====================
 

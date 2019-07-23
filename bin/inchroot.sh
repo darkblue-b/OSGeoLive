@@ -139,21 +139,21 @@ export USER_NAME
 ./install_osm.sh
 ./load_postgis.sh
 ./install_pgrouting.sh
-./install_ossim.sh
+#./install_ossim.sh
 ./install_mapserver.sh
 ./install_tinyows.sh
 ./install_gmt.sh
 ./install_mapnik.sh
 ./install_otb.sh
-./install_liblas.sh
+#./install_liblas.sh
 ./install_saga.sh
 ./install_grass.sh
 ./install_qgis.sh
 ./install_qgis_server.sh
 # ./install_zoo-project.sh "$ARCH"
-./install_marble.sh
+#./install_marble.sh
 ./install_opencpn.sh
-./install_zygrib.sh
+#./install_zygrib.sh
 ./install_PDAL.sh
 
 ## Python stack
@@ -174,13 +174,13 @@ export USER_NAME
 
 ## Java stack
 ./install_geoserver.sh
-./install_geonetwork.sh
-./install_deegree.sh
-./install_geomajas.sh
-./install_udig.sh "$ARCH"
+#./install_geonetwork.sh
+#./install_deegree.sh
+#./install_geomajas.sh
+#./install_udig.sh "$ARCH"
 ./install_openjump.sh
-./install_gvsig.sh "$ARCH"
-./install_gpsprune.sh
+#./install_gvsig.sh "$ARCH"
+#./install_gpsprune.sh
 
 ## Java + default tomcat
 ./install_52nWPS.sh
