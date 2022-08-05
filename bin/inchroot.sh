@@ -150,7 +150,7 @@ export USER_NAME
 ./install_grass.sh
 ./install_qgis.sh
 ./install_qgis_server.sh
-# ./install_zoo-project.sh "$ARCH"
+./install_zoo-project.sh "$ARCH"
 ./install_marble.sh
 ./install_opencpn.sh
 ./install_xygrib.sh
@@ -194,14 +194,14 @@ export USER_NAME
 ./install_geonode.sh
 
 ## Rust
-# ./install_trex.sh # install_vm_only
+./install_trex.sh
 
 ## Javascript et al
 ./install_openlayers.sh
 ./install_leaflet.sh
 ./install_cesium.sh
 ./install_geoext.sh
-# ./install_rasdaman.sh
+# ./install_rasdaman.sh # install_vm_only
 ./install_geostyler.sh
 # ./install_re3gistry.sh # install_vm_only
 # ./install_etf.sh # install_vm_only

@@ -1,0 +1,70 @@
+[webserver]
+port = ":8080"
+log_file = "/var/log/tegola.log"
+
+
+[[providers]]
+name = "osm_local"
+type = "postgis"
+host = "localhost"
+port = 5432
+database = "osm_local" 
+user = "user"
+password = "user"
+
+	[[providers.layers]]
+	name = "roads"
+	tablename = "planet_osm_roads"
+	geometry_fieldname = "way"
+	id_fieldname = "osm_id"
+	srid = 4326
+	fields = [ "name" ]
+
+	[[providers.layers]]
+	name = "points"
+	tablename = "planet_osm_point"
+	geometry_fieldname = "way"
+	id_fieldname = "osm_id"
+	srid = 4326
+	fields = [ "name" ]
+
+	[[providers.layers]]
+	name = "polygons"
+	tablename = "planet_osm_polygon"
+	geometry_fieldname = "way"
+	id_fieldname = "osm_id"
+	srid = 4326
+	fields = [ "name" ]
+
+	[[providers.layers]]
+	name = "lines"
+	tablename = "planet_osm_line"
+	geometry_fieldname = "way"
+	id_fieldname = "osm_id"
+	srid = 4326
+	fields = [ "name" ]
+
+
+[[maps]]
+name = "osm"
+center = [26.0921, 44.4312, 16.0]
+
+	[[maps.layers]]
+	provider_layer = "osm_local.points"
+	min_zoom = 10
+	max_zoom = 20
+
+	[[maps.layers]]
+	provider_layer = "osm_local.polygons"
+	min_zoom = 10
+	max_zoom = 20
+
+	[[maps.layers]]
+	provider_layer = "osm_local.roads"
+	min_zoom = 10
+	max_zoom = 20
+
+	[[maps.layers]]
+	provider_layer = "osm_local.lines"
+	min_zoom = 10
+	max_zoom = 20

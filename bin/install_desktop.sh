@@ -47,8 +47,7 @@ sed -i -e 's|^DesktopShortcuts=.*|DesktopShortcuts=Home, Trash|' \
        -e 's|^WallpaperMode=.*|WallpaperMode=fit|' \
        -e 's|^Wallpaper=.*|Wallpaper=/usr/share/lubuntu/wallpapers/osgeo-desktop.png|' \
        -e 's|^BgColor=.*|BgColor=#000000|' \
-       -e 's|^FgColor=.*|FgColor=#4db05b|' \
-       -e 's|^ShadowColor=.*|ShadowColor=#003842|' \
+       -e 's|^FgColor=.*|FgColor=#ffffff|' \
        -e 's|^UseTrash=.*|UseTrash=true|' \
    /etc/xdg/xdg-Lubuntu/pcmanfm-qt/lxqt/settings.conf
 
@@ -58,6 +57,10 @@ sed -i -e 's|^DesktopShortcuts=.*|DesktopShortcuts=Home, Trash|' \
 ## Bright Desktop shadow configuration ^^
 ##        -e 's|^FgColor=.*|FgColor=#232323|' \
 ##        -e 's|^ShadowColor=.*|ShadowColor=#A09A8F|' \
+
+## OSGeo font colors
+##       -e 's|^FgColor=.*|FgColor=#4db05b|' \
+##       -e 's|^ShadowColor=.*|ShadowColor=#003842|' \
 
 ## Removed this for xenial: -e 's|^desktop_shadow=.*|desktop_shadow=.*\nshow_mounts=1|' \
 
@@ -69,7 +72,7 @@ sed -i -e 's|^background=.*|background=/usr/share/lubuntu/wallpapers/osgeo-deskt
 
 # Set the installer desktop icon to OSGeoLive
 sed -i -e 's|Lubuntu|OSGeoLive|' \
-       -e 's|22.04 LTS|15.0beta1|' \
+       -e 's|22.04 LTS|15.0beta2|' \
    /usr/share/applications/lubuntu-calamares.desktop
 
 #Add the launchhelp script which allows other apps to provide sudo

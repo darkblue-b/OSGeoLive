@@ -52,6 +52,7 @@ DIR="/usr/local/share/gisvm/bin"
 
 USER_NAME="user"
 export USER_NAME
+USER_HOME="/home/$USER_NAME"
 
 # We want the git repo available in VM version for development
 # cp "$DIR"/bootstrap.sh /home/user/bootstrap.sh
@@ -63,14 +64,17 @@ export USER_NAME
 apt-get -q update
 apt-get --yes upgrade
 
+# Install linux headers
+apt-get install --yes build-essential linux-headers-generic linux-headers-5.15.0-25
+
 # Adding VBox guest additions
 apt-get install --yes virtualbox-guest-x11
 
 # Adding development packages that were removed from iso to save disk space
 apt-get --yes install build-essential git gnupg devscripts debhelper \
-  pbuilder pristine-tar git-buildpackage devscripts \
+  gcc-11 g++-11 gfortran-11 pbuilder pristine-tar git-buildpackage devscripts \
   grass-dev libgdal-dev libproj-dev libgeos-dev python3-dev python3-pip \
-  cmake libotb-dev npm nodejs python3-dask python3-sklearn python3-folium
+  cmake libotb-dev npm nodejs python3-dask python3-sklearn python3-cfgrib
 
 # Adding Python2
 apt-get install --yes python-all-dev
@@ -86,10 +90,27 @@ wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07.0-5
 dpkg -i rstudio-server-2022.07.0-548-amd64.deb
 rm rstudio-server-2022.07.0-548-amd64.deb
 # TODO: Install Atom or VS Code
-# TODO: Install docker engine
+
+# Install docker engine
 apt-get --yes install docker.io docker-compose
 usermod -aG docker user
 # TODO: Install extra documentation
+
+# Install pgadmin4
+##Add pgadmin4 key
+wget https://www.pgadmin.org/static/packages_pgadmin_org.pub
+apt-key add packages_pgadmin_org.pub
+rm packages_pgadmin_org.pub
+##Add pgadmin4 repository
+cp "$DIR"/../sources.list.d/pgadmin4.list /etc/apt/sources.list.d/
+apt-get -q update
+apt-get install --yes pgadmin4-desktop
+rm /etc/apt/sources.list.d/pgadmin4.list
+apt-get -q update
+##Setup pgadmin settings
+mkdir -p "$USER_HOME/.pgadmin"
+cp "$DIR"/../app-conf/postgresql/pgadmin4.db "$USER_HOME/.pgadmin/pgadmin4.db"
+cp /usr/share/applications/pgadmin4.desktop "$USER_HOME"/Desktop/
 
 cd "$DIR"
 
@@ -102,8 +123,8 @@ pip3 install scitools-iris
 ./install_udig.sh "$ARCH"
 ./install_52nSOS.sh
 # ./install_actinia.sh
-# ./install_trex.sh
 ./install_ncWMS.sh
+./install_rasdaman.sh
 ./install_re3gistry.sh
 ./install_etf.sh
 # ./install_icons_and_menus.sh
